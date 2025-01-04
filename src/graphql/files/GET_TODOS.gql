@@ -1,4 +1,4 @@
-query {
+query GetTodos {
   todos {
     id
     title

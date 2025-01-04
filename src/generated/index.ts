@@ -1,3 +1,2 @@
-import { Document } from "./graphql";
-
-export const DocumentGraphQL = Document;
+export * from "./fragment-masking";
+export * from "./gql";

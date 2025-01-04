@@ -2,9 +2,8 @@
 
 import styles from "./page.module.css";
 import { gql, useMutation, useQuery } from "@apollo/client";
-import { IToDo } from "@/graphql/resolvers";
 import { useEffect } from "react";
-import { DocumentGraphQL } from "@/generated";
+import { GetTodosDocument, GetTodosQuery } from "@/generated/graphql";
 
 const MUTATE_TODOS = gql`
   mutation ($text: String!) {
@@ -16,10 +15,12 @@ const MUTATE_TODOS = gql`
   }
 `;
 
+console.log(GetTodosDocument.toString());
+
 export default function Home() {
-  const { loading, error, data } = useQuery<{
-    todos: IToDo[];
-  }>(DocumentGraphQL);
+  const { loading, error, data } = useQuery<GetTodosQuery>(
+    gql(GetTodosDocument.toString())
+  );
 
   const [
     mutationFunc,
