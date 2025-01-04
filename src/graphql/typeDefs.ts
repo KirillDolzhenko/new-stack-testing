@@ -6,6 +6,10 @@ export const typeDefs = gql`
     todos: [Todo!]!
   }
 
+  type Query {
+    todosPag(limit: Int, offset: Int): [Todo!]
+  }
+
   type Todo {
     title: String!
     status: Boolean!

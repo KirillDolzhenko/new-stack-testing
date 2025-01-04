@@ -1,0 +1,15 @@
+schema: "http://localhost:3000/api/apollo" # замените на ваш GraphQL endpoint или схему
+documents: "./src/graphql/**/*.gql" # путь к вашим .gql файлам с запросами
+generates:
+  ./src/generated/graphql.ts: # путь к сгенерированному файлу
+    plugins:
+      # - "typescript"
+      # - "typescript-operations"
+      # - "client-preset"
+      # - "graphql-tag"
+      - "typescript-react-apollo"
+    config:
+      recursionLimit: 7
+    # config:
+    #   documentVariableName: DocumentCustomName
+

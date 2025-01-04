@@ -15,6 +15,12 @@ export const resolvers = {
     hello: () => "Hello, world!",
 
     todos: () => data,
+    todosPag: (
+      parent: unknown,
+      { limit, offset }: { limit: number; offset: number }
+    ) => {
+      return data.slice(offset * limit - 1, offset * limit - 1 + limit)
+    },
   },
 
   Mutation: {

@@ -4,16 +4,7 @@ import styles from "./page.module.css";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { IToDo } from "@/graphql/resolvers";
 import { useEffect } from "react";
-
-const GET_TODOS = gql`
-  query {
-    todos {
-      id
-      title
-      status
-    }
-  }
-`;
+import { DocumentGraphQL } from "@/generated";
 
 const MUTATE_TODOS = gql`
   mutation ($text: String!) {
@@ -28,7 +19,7 @@ const MUTATE_TODOS = gql`
 export default function Home() {
   const { loading, error, data } = useQuery<{
     todos: IToDo[];
-  }>(GET_TODOS);
+  }>(DocumentGraphQL);
 
   const [
     mutationFunc,
